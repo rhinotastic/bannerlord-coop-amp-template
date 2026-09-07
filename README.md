@@ -164,16 +164,20 @@ Confirmed against a live server boot (Coop build for Bannerlord v1.4.8):
   line the server emits every ~14s
 - `ThrowawayMessageRegex` hides the `@DS@{...}` machine-readable event lines,
   including the enormous one-line command dump printed at startup
+- `MonitorChildProcessName` tracks the real workload. The launcher
+  (`BannerlordCoopServer.exe`, ~0.3% CPU) spawns the engine
+  (`dotnet.exe TaleWorlds.Starter.DotNetCore.dll …`, ~150% CPU / 800 MB),
+  and the regex is keyed to `/dedicatedcustomserver {{$EnginePort}}` so it
+  stays correct with several instances on one host
+- Join/leave detection, matched on the peer id
 
 ## Not yet tuned
 
 These are deliberately left conservative rather than guessed at:
 
-- **`App.MonitorChildProcessName` is empty.** The launcher spawns the actual
-  engine as a child process, so AMP's CPU/RAM figures will reflect only the
-  launcher. Once it's running, `ps aux` inside the container will show the
-  engine's command line and we can write a regex for it. A *wrong* regex
-  makes AMP think the server crashed, so it's better empty than guessed.
+- **Watchdog.** The engine also starts `Watchdog.exe`, Bannerlord's crash
+  collector. It's harmless and left alone; the launcher's `--no-watchdog`
+  flag would disable it but is only needed for attaching a debugger.
 - **AMP's player list shows IP addresses, not character names.** Join/leave
   detection works (matched on the peer id, like AMP's own V Rising template),
   but the only identity the server prints at connect time is the IP:
