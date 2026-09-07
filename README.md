@@ -174,10 +174,16 @@ These are deliberately left conservative rather than guessed at:
   launcher. Once it's running, `ps aux` inside the container will show the
   engine's command line and we can write a regex for it. A *wrong* regex
   makes AMP think the server crashed, so it's better empty than guessed.
-- **User join/leave/chat regexes are empty.** The mod logs through Serilog
-  templates whose rendered format I couldn't confirm from the binary. Send me
-  a console excerpt of someone joining and I'll add them so AMP's player list
-  populates.
+- **AMP's player list shows IP addresses, not character names.** Join/leave
+  detection works (matched on the peer id, like AMP's own V Rising template),
+  but the only identity the server prints at connect time is the IP:
+  `player connecting: peer 0 from 82.10.106.223`. The character name doesn't
+  exist yet at that point — players pick it during character creation — and
+  when it does appear it's inside a `@DS@{"ev":"players","list":[...]}` event.
+  AMP's console parser handles per-user event lines, not list snapshots, so
+  the name can't be recovered from it.
+- **Chat is not surfaced.** No server-side chat line was observed in the
+  logs, so `UserChatRegex` is left empty.
 - **`--data-dir` uses the Wine `Z:` drive** (`Z:` maps to `/`, standard in
   every Wine prefix) to point at the instance's `CoopData/DedicatedServer`.
   If the data path in the server's boot banner ("data :" / "conf :") doesn't

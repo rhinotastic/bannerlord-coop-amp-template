@@ -77,8 +77,8 @@ Console.FilterMatchRegex=
 Console.FilterMatchReplacement=
 Console.ThrowawayMessageRegex=^((WARNING|ERROR): Shader.+|Could not find Wine Gecko.*|\d+:err:ole:.*|wine: Read access denied.*|@DS@\{.*\})$
 Console.AppReadyRegex=^.*\[DedicatedServer\] SERVING.*$
-Console.UserJoinRegex=^$
-Console.UserLeaveRegex=^$
+Console.UserJoinRegex=^.*\[DedicatedServer\] player connecting: peer (?<userid>\d+) from (?<username>\S+)$
+Console.UserLeaveRegex=^.*\[DedicatedServer\] player disconnected: peer (?<userid>\d+).*$
 Console.UserChatRegex=^$
 Console.MetricsRegex=^.*\[DedicatedServer\] pulse: .*players=(?<Players>\d+) parties=(?<Parties>\d+) mapEvents=(?<Map_Events>\d+).*$
 Console.SuppressLogAtStart=False
