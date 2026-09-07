@@ -112,8 +112,17 @@ engine noise on the way — that's normal.
 
 The AMP console is a real server console: `save` writes a manual save, and
 the Coop debug commands (`coop.debug.players.list`, etc.) work there too.
-Stopping the instance sends Ctrl+C, which saves the world first (allow up to
-~30s; the template's exit timeout is 60s).
+
+**Stopping** sends the server's own `stop` console command on stdin
+(`ExitMethod=String`), which saves the world and shuts the engine down
+cleanly. Allow up to ~30s for the save; the exit timeout is 90s.
+
+Do *not* use `ExitMethod=OS_CLOSE` here, even though the server's own docs
+say "press Ctrl+C to stop" and AMP's other Wine templates use it. AMP would
+send SIGINT to the Wine process, which must then be translated into a Win32
+`CTRL_C_EVENT` and passed through `start.exe` to the launcher — that chain
+doesn't survive, and the instance hangs on Stop until the timeout expires.
+The console command needs no signal translation.
 
 ## Gameplay settings (mod-config.json)
 
