@@ -221,5 +221,487 @@
             "False": "false",
             "True": "true"
         }
+    },
+    {
+        "DisplayName": "Player Damage Taken",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Damage players take. Very Easy: -75%. Easy: -50%. Realistic: no change",
+        "Keywords": "difficulty,playerreceiveddamage",
+        "FieldName": "mc_playerReceivedDamage",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.playerReceivedDamage",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Player Troop Damage Taken",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Damage your troops take. Very Easy: -50%. Easy: -25%. Realistic: no change",
+        "Keywords": "difficulty,playertroopsreceiveddamage",
+        "FieldName": "mc_playerTroopsReceivedDamage",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.playerTroopsReceivedDamage",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Combat AI Difficulty",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Very Easy: Normal. Easy: Veteran. Realistic: Challenging",
+        "Keywords": "difficulty,combataidifficulty",
+        "FieldName": "mc_combatAIDifficulty",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.combatAIDifficulty",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Recruitment Difficulty",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Troops available from notables. Very Easy: +2. Easy: +1. Realistic: no change",
+        "Keywords": "difficulty,recruitmentdifficulty",
+        "FieldName": "mc_recruitmentDifficulty",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.recruitmentDifficulty",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Map Movement Speed",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Player party speed while travelling. Very Easy: +10%. Easy: +5%. Realistic: no change",
+        "Keywords": "difficulty,playermapmovementspeed",
+        "FieldName": "mc_playerMapMovementSpeed",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.playerMapMovementSpeed",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Stealth And Disguise",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Very Easy: Normal. Easy: Veteran. Realistic: Challenging",
+        "Keywords": "difficulty,stealthanddisguisedifficulty",
+        "FieldName": "mc_stealthAndDisguiseDifficulty",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.stealthAndDisguiseDifficulty",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Persuasion Success Chance",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Very Easy: +10%. Easy: +5%. Realistic: no change",
+        "Keywords": "difficulty,persuasionsuccesschance",
+        "FieldName": "mc_persuasionSuccessChance",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.persuasionSuccessChance",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Clan Member Death Chance",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Chance player clan members die in battle. Very Easy: disabled. Easy: reduced 50%. Realistic: no change",
+        "Keywords": "difficulty,clanmemberdeathchance",
+        "FieldName": "mc_clanMemberDeathChance",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.clanMemberDeathChance",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Battle Death",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Very Easy: no hero dies in battle. Easy: player heroes cannot die. Realistic: all heroes can die",
+        "Keywords": "difficulty,battledeath",
+        "FieldName": "mc_battleDeath",
+        "InputType": "enum",
+        "ParamFieldName": "$.difficulty.battleDeath",
+        "DefaultValue": "VeryEasy",
+        "EnumValues": {
+            "VeryEasy": "Very Easy",
+            "Easy": "Easy",
+            "Realistic": "Realistic"
+        }
+    },
+    {
+        "DisplayName": "Birth And Death",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Aging, births and natural deaths. NOT currently supported by Coop - leave off. Turning it off does not disable battle deaths; use Battle Death and Clan Member Death Chance for that",
+        "Keywords": "birth,death,aging",
+        "FieldName": "mc_birthAndDeath",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.difficulty.birthAndDeath",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Auto Allocate Clan Perks",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Campaign Difficulty:trending_up:1",
+        "Description": "Automatically allocate perks for members of player clans",
+        "Keywords": "perks,clan,auto",
+        "FieldName": "mc_autoAllocateClanMemberPerks",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.difficulty.autoAllocateClanMemberPerks",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Battle Size",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Total human troops allocated across both sides of a battle. Lower this if battles run badly",
+        "Keywords": "battlesize",
+        "FieldName": "mc_battleSize",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.battleSize",
+        "DefaultValue": "1000",
+        "EnumValues": {},
+        "MinValue": "200",
+        "MaxValue": "1000",
+        "Suffix": "troops"
+    },
+    {
+        "DisplayName": "Allow Fast Forward",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow 2x campaign speed. Fast forward is always blocked while a player is in a battle",
+        "Keywords": "fastforwardenabled",
+        "FieldName": "mc_fastForwardEnabled",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.fastForwardEnabled",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Auto Pause",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Pause when all players are occupied in a battle or settlement. The game still auto-pauses for clients catching up and when nobody is online",
+        "Keywords": "autopauseenabled",
+        "FieldName": "mc_autoPauseEnabled",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.autoPauseEnabled",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Clients Can Use Cheats",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow clients to cheat in troops, equipment, teleporting etc. Vanilla Bannerlord console commands are always disabled on clients regardless",
+        "Keywords": "clientscanusecheats",
+        "FieldName": "mc_clientsCanUseCheats",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.clientsCanUseCheats",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Gold/Food Change In Settlements",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Includes income. Off: gold and food are frozen while in a settlement, including tournaments",
+        "Keywords": "goldfoodinfluencechangeinsettlements",
+        "FieldName": "mc_goldFoodInfluenceChangeInSettlements",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.goldFoodInfluenceChangeInSettlements",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Gold/Food Change In Battles",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Includes income. One Day Max: at most one change per battle, e.g. paying troops once during a long siege",
+        "Keywords": "goldfoodinfluencechangeinbattles",
+        "FieldName": "mc_goldFoodInfluenceChangeInBattles",
+        "InputType": "enum",
+        "ParamFieldName": "$.modOptions.goldFoodInfluenceChangeInBattles",
+        "DefaultValue": "OneDayMax",
+        "EnumValues": {
+            "Disabled": "Disabled",
+            "OneDayMax": "One Day Max",
+            "Enabled": "Enabled"
+        }
+    },
+    {
+        "DisplayName": "Gold/Food Change While Offline",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Includes income. On: disconnected players still gain and lose gold and food",
+        "Keywords": "goldfoodinfluencechangefordisconnectedplayers",
+        "FieldName": "mc_goldFoodInfluenceChangeForDisconnectedPlayers",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.goldFoodInfluenceChangeForDisconnectedPlayers",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "AI Battle Join Window",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Grace period in campaign hours for AI parties to join a battle involving players. 0 means AI never joins player battles",
+        "Keywords": "playerbattleaijoinwindowhours",
+        "FieldName": "mc_playerBattleAiJoinWindowHours",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.playerBattleAiJoinWindowHours",
+        "DefaultValue": "24",
+        "EnumValues": {},
+        "MinValue": "0",
+        "MaxValue": "720",
+        "Suffix": "hours"
+    },
+    {
+        "DisplayName": "Speed Limit During Battles",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Lock the campaign map to 1x while any player is in a battle",
+        "Keywords": "speedlimitwhileplayersinbattle",
+        "FieldName": "mc_speedLimitWhilePlayersInBattle",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.speedLimitWhilePlayersInBattle",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Wanderer Limit",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "How many wanderers/companions can exist at once. Vanilla is roughly 32",
+        "Keywords": "wandererlimit",
+        "FieldName": "mc_wandererLimit",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.wandererLimit",
+        "DefaultValue": "32",
+        "EnumValues": {},
+        "MinValue": "0",
+        "MaxValue": "500",
+        "Suffix": "wanderers"
+    },
+    {
+        "DisplayName": "Scale Wanderers With Players",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Override the fixed limit with one that grows with player count, starting at the vanilla 32. Each clan adds by tier: 0, 0, 5, 5, 5, 10, 10",
+        "Keywords": "wandererlimitscaleswithplayers",
+        "FieldName": "mc_wandererLimitScalesWithPlayers",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.wandererLimitScalesWithPlayers",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Kingdom Clan Tier Required",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Clan tier a player needs to form a kingdom. Vanilla is 4",
+        "Keywords": "playerkingdomclantierrequired",
+        "FieldName": "mc_playerKingdomClanTierRequired",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.playerKingdomClanTierRequired",
+        "DefaultValue": "4",
+        "EnumValues": {},
+        "MinValue": "0",
+        "MaxValue": "6",
+        "Suffix": "tier"
+    },
+    {
+        "DisplayName": "Smithing Stamina Outside Settlements",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "On: recover smithing stamina while moving around the map. Off: vanilla behaviour, only while waiting in settlements",
+        "Keywords": "smithingstaminarecoveryoutsidesettlements",
+        "FieldName": "mc_smithingStaminaRecoveryOutsideSettlements",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.smithingStaminaRecoveryOutsideSettlements",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Smithing Stamina Multiplier",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Smithing stamina recovery rate. Vanilla is 1; the mod default is 0.1 because stamina also regenerates in the smithing screen. Lower than 0.1 has no further effect",
+        "Keywords": "smithingstaminarecoverymultiplier",
+        "FieldName": "mc_smithingStaminaRecoveryMultiplier",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.smithingStaminaRecoveryMultiplier",
+        "DefaultValue": "0.1",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Bandit Party Count Multiplier",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "How many looter/bandit parties can exist at once. 1 equals the vanilla limit. WARNING: high values cause performance problems",
+        "Keywords": "maximumlootersmultiplier",
+        "FieldName": "mc_maximumLootersMultiplier",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.maximumLootersMultiplier",
+        "DefaultValue": "1.0",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Bandit Party Size Multiplier",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Size of looter/bandit parties. 1 equals vanilla. Only affects newly spawned parties, not ones already in the save",
+        "Keywords": "looterpartysizemultiplier",
+        "FieldName": "mc_looterPartySizeMultiplier",
+        "InputType": "number",
+        "ParamFieldName": "$.modOptions.looterPartySizeMultiplier",
+        "DefaultValue": "1.0",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Lord Defection Retries",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "How long a lord remembers refusing to defect. Vanilla: blocked for one in-game year. Never Expire: blocked for the session. Always Retry: never blocked",
+        "Keywords": "lorddefectionretries",
+        "FieldName": "mc_lordDefectionRetries",
+        "InputType": "enum",
+        "ParamFieldName": "$.modOptions.lordDefectionRetries",
+        "DefaultValue": "Vanilla",
+        "EnumValues": {
+            "Vanilla": "Vanilla",
+            "NeverExpire": "Never Expire",
+            "AlwaysRetry": "Always Retry"
+        }
+    },
+    {
+        "DisplayName": "Allow Hero Executions",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow players to execute AI clan members. Executing other players is never allowed",
+        "Keywords": "enableheroexecutions",
+        "FieldName": "mc_enableHeroExecutions",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.enableHeroExecutions",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Allow Executing Player Clan Members",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow executing other players' companions and family. Has no effect if hero executions are off",
+        "Keywords": "enableplayerclanmemberexecutions",
+        "FieldName": "mc_enablePlayerClanMemberExecutions",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.enablePlayerClanMemberExecutions",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Player Nameplates",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow clients to show nameplates above allied remote players. Off also hides the client-side option",
+        "Keywords": "showplayernameplates",
+        "FieldName": "mc_showPlayerNameplates",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.showPlayerNameplates",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Join Battles While Wounded",
+        "Category": "Gameplay:sports_esports",
+        "Subcategory": "Mod Options:tune:2",
+        "Description": "Allow players to join battles while wounded",
+        "Keywords": "playerwoundedbattleentry",
+        "FieldName": "mc_playerWoundedBattleEntry",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.modOptions.playerWoundedBattleEntry",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
     }
 ]

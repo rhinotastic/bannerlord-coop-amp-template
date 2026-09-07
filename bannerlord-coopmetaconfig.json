@@ -3,5 +3,10 @@
         "ConfigFile": "server-config.json",
         "AutoMap": true,
         "ConfigType": "json"
+    },
+    {
+        "ConfigFile": "mod-config.json",
+        "AutoMap": true,
+        "ConfigType": "json"
     }
 ]
