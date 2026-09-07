@@ -75,12 +75,12 @@ App.WakeupMode=Any
 App.ApplicationReadyMode=RegexMatch
 Console.FilterMatchRegex=
 Console.FilterMatchReplacement=
-Console.ThrowawayMessageRegex=^((WARNING|ERROR): Shader.+|Could not find Wine Gecko.*|\d+:err:ole:.*|wine: Read access denied.*)$
+Console.ThrowawayMessageRegex=^((WARNING|ERROR): Shader.+|Could not find Wine Gecko.*|\d+:err:ole:.*|wine: Read access denied.*|@DS@\{.*\})$
 Console.AppReadyRegex=^.*\[DedicatedServer\] SERVING.*$
 Console.UserJoinRegex=^$
 Console.UserLeaveRegex=^$
 Console.UserChatRegex=^$
-Console.MetricsRegex=
+Console.MetricsRegex=^.*\[DedicatedServer\] pulse: .*players=(?<Players>\d+) parties=(?<Parties>\d+) mapEvents=(?<Map_Events>\d+).*$
 Console.SuppressLogAtStart=False
 Console.ActivateLogRegex=
 Console.UserActions={}

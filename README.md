@@ -118,12 +118,23 @@ Stopping the instance sends Ctrl+C, which saves the world first (allow up to
 ## Gameplay settings (mod-config.json)
 
 Difficulty, battle size, wanderer limits and so on live in a **separate**
-file: `bannerlordcoop/CoopData/mod-config.json` in the instance. It's not in
-the AMP settings UI because it's JSON *with comments* — AMP's config mapper
-would strip them and lose all the inline documentation. Edit it with AMP's
-File Manager instead, and restart the server to apply (difficulty changes
-need a restart). Delete the file and restart to regenerate it with any new
-options after a mod update.
+file. Unlike `server-config.json`, its location is *not* affected by
+`--data-dir` — the server always resolves it against the Windows "Documents"
+folder, which under Wine means inside the prefix:
+
+```
+bannerlordcoop/.wine/drive_c/users/amp/Documents/Mount and Blade II Bannerlord/CoopData/mod-config.json
+```
+
+(Confirmed from the boot log: `[Coop] mod-config.json loaded
+("C:\users\amp\Documents\...\CoopData\mod-config.json")`.) It still lives in
+the instance directory, so it persists across restarts.
+
+It's not in the AMP settings UI because it's JSON *with comments* — AMP's
+config mapper would strip them and lose all the inline documentation. Edit it
+with AMP's File Manager instead, and restart the server to apply (difficulty
+changes need a restart). Delete the file and restart to regenerate it with
+any new options after a mod update.
 
 ## Things worth knowing
 
@@ -137,7 +148,24 @@ options after a mod update.
 - **Workshop updates aren't nightly.** The Workshop item updates roughly
   weekly, so clicking Update won't always change anything.
 
-## Not yet tuned (needs a first real run)
+## Verified on a real run
+
+Confirmed against a live server boot (Coop build for Bannerlord v1.4.8):
+
+- Wine launch, `WorkingDir` and the `Z:`-drive `--data-dir` all resolve
+  correctly — the boot banner reports
+  `data : Z:\AMP\bannerlordcoop\CoopData\DedicatedServer\`
+- Ports and region pass through:
+  `port : UDP 4200 — coop clients connect here (engine custom server: 7210/EU)`
+- Campaign loads in ~42s and reaches
+  `[DedicatedServer] SERVING — coop server up, waiting for clients`,
+  which `AppReadyRegex` matches (with or without the log timestamp prefix)
+- `MetricsRegex` graphs players / parties / map events from the `pulse:`
+  line the server emits every ~14s
+- `ThrowawayMessageRegex` hides the `@DS@{...}` machine-readable event lines,
+  including the enormous one-line command dump printed at startup
+
+## Not yet tuned
 
 These are deliberately left conservative rather than guessed at:
 
