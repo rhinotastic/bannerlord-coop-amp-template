@@ -1,0 +1,23 @@
+[
+    {
+        "Protocol": "UDP",
+        "Port": 4200,
+        "Ref": "GamePort",
+        "Name": "Coop Join Port",
+        "Description": "UDP port coop clients connect to. Written into server-config.json as 'port'. Forward this for direct connect."
+    },
+    {
+        "Protocol": "UDP",
+        "Port": 4201,
+        "Ref": "GamePort2",
+        "Name": "Coop Join Port +1",
+        "Description": "Second UDP port the server uses. Must always be the Coop Join Port + 1 - if you change the join port, change this to match."
+    },
+    {
+        "Protocol": "Both",
+        "Port": 7210,
+        "Ref": "EnginePort",
+        "Name": "Engine Port",
+        "Description": "Port the Bannerlord engine is started as a custom server on (--port). Internal only - players do NOT connect to this. Just needs to be unique per instance."
+    }
+]

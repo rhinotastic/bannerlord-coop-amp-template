@@ -1,0 +1,225 @@
+[
+    {
+        "DisplayName": "Coop Join Port",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "UDP port coop clients connect to. Managed by AMP's port settings and written into server-config.json",
+        "Keywords": "port,udp,join,connect",
+        "FieldName": "$GamePort",
+        "InputType": "number",
+        "Hidden": true,
+        "ParamFieldName": "$.port",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Save Name",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Save to host, from the 'Game Saves' folder in the data directory (no .sav extension). If it does not exist, a fresh world is created from default_new_game.sav and saved under this name",
+        "Keywords": "save,world,campaign,savename",
+        "FieldName": "saveName",
+        "InputType": "text",
+        "ParamFieldName": "$.saveName",
+        "DefaultValue": "saveauto1",
+        "Placeholder": "saveauto1",
+        "Required": true,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Server Password",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Connection password (up to 128 characters). Joining players are prompted for it. Leave empty for an open server",
+        "Keywords": "password,private,lock",
+        "FieldName": "password",
+        "InputType": "password",
+        "ParamFieldName": "$.password",
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Autosave Interval",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Minutes between world autosaves. 0 disables autosaving. Two previous generations are kept as <saveName>.backup1 and .backup2",
+        "Keywords": "autosave,save,interval,minutes",
+        "FieldName": "autosaveMinutes",
+        "InputType": "number",
+        "MinValue": "0",
+        "MaxValue": "1440",
+        "ParamFieldName": "$.autosaveMinutes",
+        "DefaultValue": "5",
+        "Placeholder": "5",
+        "Suffix": "min",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Player Limit",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Maximum number of players shown in the AMP status tab. Display only - the Coop mod supports up to 8 players",
+        "Keywords": "maximum,players,limit,slots",
+        "FieldName": "$MaxUsers",
+        "InputType": "number",
+        "MinValue": "1",
+        "MaxValue": "8",
+        "ParamFieldName": "MaxNumberOfPlayers",
+        "DefaultValue": "8",
+        "Placeholder": "8",
+        "Suffix": "players",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Advertise on Steam",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Advertise this server as a public Steam lobby so players can find it in the Coop server browser and join through Steam friends, with traffic relayed over Steam (no port forwarding needed). This requires a logged-in Steam CLIENT running on the same machine, which a headless AMP container does not have - leave this off and use direct connect on the Coop Join Port",
+        "Keywords": "steam,lobby,advertise,browser,friends",
+        "FieldName": "steam",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.steam",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Write Log Files",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Server:dns:1",
+        "Description": "Write everything the server prints to logs/coop-server-*.log in the data directory (one file per launch, newest 10 kept). Disable for console output only",
+        "Keywords": "log,logging,file",
+        "FieldName": "logFile",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.logFile",
+        "DefaultValue": "true",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Region",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Launcher:rocket_launch:2",
+        "Description": "Region code passed to the engine on startup (--region)",
+        "Keywords": "region,eu,na",
+        "FieldName": "Region",
+        "InputType": "text",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "EU",
+        "Placeholder": "EU",
+        "Required": true,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Engine Diagnostics",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Launcher:rocket_launch:2",
+        "Description": "Enable MonoMod and crash-dump diagnostics (--trace). Only enable when capturing evidence for a bug report",
+        "Keywords": "trace,debug,diagnostics,monomod,crash",
+        "FieldName": "TraceFlag",
+        "InputType": "checkbox",
+        "IsFlagArgument": true,
+        "IncludeInCommandLine": true,
+        "ParamFieldName": "trace",
+        "DefaultValue": "--trace",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Steam Username",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Steam Workshop Update:cloud_download:3",
+        "Description": "Steam account used to download the mod from the Workshop. The account must own Mount & Blade II: Bannerlord. Required before the first update",
+        "Keywords": "steam,username,account,login",
+        "FieldName": "SteamUsername",
+        "InputType": "text",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Steam Password",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Steam Workshop Update:cloud_download:3",
+        "Description": "Only needed for the first login. Once SteamCMD has cached a login token you can clear this field and updates will keep working. Avoid passwords containing single quotes",
+        "Keywords": "steam,password,login",
+        "FieldName": "SteamPassword",
+        "InputType": "password",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Steam Guard Code",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Steam Workshop Update:cloud_download:3",
+        "Description": "Current Steam Guard code, if the account has 2FA enabled. Only needed for the first login - clear it afterwards. Codes expire quickly, so set it immediately before clicking Update",
+        "Keywords": "steam,guard,2fa,mfa,code",
+        "FieldName": "SteamGuardCode",
+        "InputType": "text",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Workshop Item ID",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Steam Workshop Update:cloud_download:3",
+        "Description": "Steam Workshop ID of the Bannerlord Coop mod. Only change this to track a different (e.g. nightly) release",
+        "Keywords": "workshop,mod,id,item",
+        "FieldName": "WorkshopItemID",
+        "InputType": "text",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "3770450698",
+        "Placeholder": "3770450698",
+        "Required": true,
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Trace Campaign Ticks",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Diagnostics:bug_report:4",
+        "Description": "Emit campaign tick breadcrumbs. Very verbose - only enable when asked to capture tick-path evidence for a bug report",
+        "Keywords": "trace,tick,debug",
+        "FieldName": "traceTick",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.traceTick",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Trace Publishes",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Diagnostics:bug_report:4",
+        "Description": "Bracket every subscriber publish invocation. A ticking campaign can emit thousands of lines per minute - only enable for a publish-path failure",
+        "Keywords": "trace,publish,debug",
+        "FieldName": "tracePublish",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.tracePublish",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    },
+    {
+        "DisplayName": "Trace Bandits",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Diagnostics:bug_report:4",
+        "Description": "Emit one bandit-party AI sample per campaign pulse. Only enable when asked to capture bandit movement or settlement diagnostics",
+        "Keywords": "trace,bandits,debug",
+        "FieldName": "traceBandits",
+        "InputType": "checkbox",
+        "ParamFieldName": "$.traceBandits",
+        "DefaultValue": "false",
+        "EnumValues": {
+            "False": "false",
+            "True": "true"
+        }
+    }
+]
