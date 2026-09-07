@@ -65,10 +65,34 @@ Coop → Steam Workshop Update** and set:
 Then click **Update**. It pulls ~6 GB (the Workshop item bundles the whole
 dedicated server plus game assets), so give it time.
 
-**After the first successful update, clear the password and Guard code.**
-SteamCMD caches a login token under `bannerlordcoop/steamhome`, which lives
-in the instance directory and persists across container restarts, so later
-updates work with just the username.
+**After the first successful update, clear the password and Guard code —
+leave only the username.** SteamCMD caches its own login token under
+`bannerlordcoop/steamhome/Steam/config/`, so every later update logs in with
+the username alone and never asks for a Guard code again. The Guard code is
+a one-time cost, which is why it isn't worth wiring into a prompt.
+
+### Why not AMP's built-in Steam login popup?
+
+AMP does have a native credential prompt (`SteamUpdateAnonymousLogin=False`
++ `SteamForceLoginPrompt=True`), and it's nicer — AMP passes what you type
+straight to SteamCMD without storing it. But that prompt only fires for
+AMP's built-in `SteamCMD` update stage, which can only run `app_update` on a
+Steam **application**. The Coop server isn't an app; it's a Workshop item,
+and `workshop_download_item` isn't reachable from that stage — which is why
+every official template that installs Workshop content (ARK, Arma 3, DayZ)
+shells out to its own script exactly like this one does.
+
+Using the native prompt would mean adding a pointless multi-GB app download
+purely to trigger a login. Since the credentials are needed only once, the
+settings fields are the better trade.
+
+### Where the Workshop files land
+
+`workshop_download_item` ignores `+force_install_dir` and always downloads to
+`$HOME/Steam/steamapps/workshop/`. This template points `HOME` at
+`bannerlordcoop/steamhome`, inside the instance, so the ~6 GB download
+persists across container restarts. (AMP's own ARK template instead symlinks
+`~/Steam/steamapps`, which leaves the content in container-local storage.)
 
 ### 3. Configure and start
 
