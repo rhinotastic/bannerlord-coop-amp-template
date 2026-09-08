@@ -199,9 +199,19 @@ Confirmed against a live server boot (Coop build for Bannerlord v1.4.8):
 
 These are deliberately left conservative rather than guessed at:
 
-- **Watchdog.** The engine also starts `Watchdog.exe`, Bannerlord's crash
-  collector. It's harmless and left alone; the launcher's `--no-watchdog`
-  flag would disable it but is only needed for attaching a debugger.
+- **Watchdog.** The engine starts `Watchdog.exe`, Bannerlord's crash
+  collector, which holds the process's single debugger slot. The Coop
+  community reports this causes severe lag under Wine on Linux, and works
+  around it by renaming the executable. This template instead passes the
+  launcher's own `--no-watchdog` flag, controlled by the **Disable Crash
+  Watchdog** setting (on by default).
+
+  Prefer the flag over renaming: the update stage runs
+  `workshop_download_item … validate`, which restores any renamed or deleted
+  file, so a rename would have to be redone after every update.
+
+  The cost is no crash dumps. If you need one for a bug report, turn the
+  setting off temporarily.
 - **AMP's player list shows IP addresses, not character names.** Join/leave
   detection works (matched on the peer id, like AMP's own V Rising template),
   but the only identity the server prints at connect time is the IP:

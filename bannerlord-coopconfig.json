@@ -128,6 +128,21 @@
         "EnumValues": {}
     },
     {
+        "DisplayName": "Disable Crash Watchdog",
+        "Category": "Bannerlord Coop:stadia_controller",
+        "Subcategory": "Launcher:rocket_launch:2",
+        "Description": "Skip the engine's Watchdog.exe crash collector (--no-watchdog). Watchdog occupies the process's single debugger slot, which is reported to cause severe performance problems under Wine on Linux - leave this ON unless you are capturing a crash dump for a bug report. Turning it off restores crash dumps but may reintroduce the lag",
+        "Keywords": "watchdog,performance,lag,crash,dump",
+        "FieldName": "NoWatchdog",
+        "InputType": "checkbox",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "--no-watchdog",
+        "EnumValues": {
+            "False": "",
+            "True": "--no-watchdog"
+        }
+    },
+    {
         "DisplayName": "Steam Username",
         "Category": "Bannerlord Coop:stadia_controller",
         "Subcategory": "Steam Workshop Update:cloud_download:3",
