@@ -212,6 +212,26 @@ These are deliberately left conservative rather than guessed at:
 
   The cost is no crash dumps. If you need one for a bug report, turn the
   setting off temporarily.
+
+  Confirmed working: with the setting on, the launcher forwards the engine
+  token and no Watchdog process is started —
+  `/dedicatedcustomserver 7211 EU 0 no_watchdog`.
+
+  **Linux clients need this too.** Windows players were smooth while Linux
+  players stuttered on the campaign map on the same server at the same time,
+  and deleting the client's own Watchdog folder fixed it:
+
+  ```
+  Mount & Blade II Bannerlord/bin/Win64_Shipping_Client/Watchdog/
+  ```
+
+  There is no client-side equivalent of `--no-watchdog` — the flag belongs to
+  the Coop dedicated-server launcher, which clients don't run — so deletion is
+  the only lever. Steam's "verify integrity of game files" and some patches
+  restore it, so it has to be redone afterwards.
+
+  Note this is invisible in server CPU: the engine sat at ~150% both with and
+  without Watchdog. The cost is frame-time jitter, not throughput.
 - **AMP's player list shows IP addresses, not character names.** Join/leave
   detection works (matched on the peer id, like AMP's own V Rising template),
   but the only identity the server prints at connect time is the IP:
