@@ -117,15 +117,17 @@
         "DisplayName": "Engine Diagnostics",
         "Category": "Bannerlord Coop:stadia_controller",
         "Subcategory": "Launcher:rocket_launch:2",
-        "Description": "Enable MonoMod and crash-dump diagnostics (--trace). Only enable when capturing evidence for a bug report",
+        "Description": "Enable MonoMod instrumentation and crash-dump diagnostics (--trace). This slows the server down noticeably - leave it off unless you are capturing evidence for a bug report",
         "Keywords": "trace,debug,diagnostics,monomod,crash",
         "FieldName": "TraceFlag",
         "InputType": "checkbox",
-        "IsFlagArgument": true,
-        "IncludeInCommandLine": true,
+        "IncludeInCommandLine": false,
         "ParamFieldName": "trace",
-        "DefaultValue": "--trace",
-        "EnumValues": {}
+        "DefaultValue": "",
+        "EnumValues": {
+            "False": "",
+            "True": "--trace"
+        }
     },
     {
         "DisplayName": "Disable Crash Watchdog",
